@@ -10,7 +10,6 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 # Define the prediction endpoint
 @app.route('/predict', methods=['POST'])
-@app.route('/predict', methods=['POST'])
 def predict():
     try:
         # Parse input JSON
@@ -36,7 +35,7 @@ def predict():
             prediction = 19.2
 
         # Convert to Python native type
-        prediction = float(prediction)
+        prediction = int(prediction)
 
         return jsonify({"prediction": prediction})
 
