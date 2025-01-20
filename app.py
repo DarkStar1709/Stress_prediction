@@ -6,11 +6,18 @@ import pickle
 app = Flask(__name__)
 
 # Load the pickled model
-model = pickle.load(open('model.pkl', 'rb')) 
+try:
+    model = pickle.load(open('model.pkl', 'rb'))
+except Exception as e:
+    print(f"Error loading model: {str(e)}")
+    model = None  # or exit or handle in some way
 
 # Define the prediction endpoint
 @app.route('/predict', methods=['POST'])
 def predict():
+    if model is None:
+        return jsonify({"error": "Model not loaded"}), 500
+
     try:
         # Parse input JSON
         data = request.json
