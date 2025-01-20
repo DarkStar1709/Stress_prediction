@@ -1,14 +1,29 @@
+# Ignore virtual environments
 .venv/
-__pycache__/
-node_modules/
-*.pyc
-.git/
-.DS_Store
-*.log
+env/
 myenv/
 
-*.dll
-*.pyd
+# Ignore Python cache files and directories
+__pycache__/
 _pycache_/
 *.pyc
+
+# Ignore Node.js modules
+node_modules/
+
+# Ignore Git-related files
+.git/
+.gitignore
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore log files
+*.log
+
+# Ignore compiled files
+*.dll
+*.pyd
+
+# Ignore Vercel cache and config
 .vercel
